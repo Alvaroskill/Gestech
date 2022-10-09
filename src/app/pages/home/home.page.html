@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button [routerLink]="['../persons']" >Persons</ion-button>
+  <ion-button [routerLink]="['../tasks']" >Tasks</ion-button>
+  <ion-button [routerLink]="['../viewtasks']" >View tasks</ion-button>
+  <ion-button [routerLink]="['../assign']" >Assign</ion-button>
+</ion-content>
