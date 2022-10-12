@@ -6,4 +6,5 @@
 
 <ion-content>
   <ion-button [routerLink]="['../home']" >Return</ion-button>
+  <app-persons *ngFor="let person of getPeople()" [p]="person"></app-persons>
 </ion-content>
