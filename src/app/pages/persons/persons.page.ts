@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Person } from '../models/peoples.module'
+import { Person } from '../models/person.module'
 import { PersonsService } from '../services/persons.service';
 import { ActivatedRoute } from '@angular/router';
 
