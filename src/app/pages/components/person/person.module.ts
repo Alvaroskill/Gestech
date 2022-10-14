@@ -13,4 +13,8 @@ import { PersonComponent } from './person.component';
     declarations: [PersonComponent],
     exports: [PersonComponent]
 })
-export class PeopleComponentModule {}
+export class PersonComponentModule {
+
+    
+
+}
