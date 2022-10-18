@@ -16,7 +16,8 @@ import { PersonComponentModule } from '../components/person/person.module';
     FormsModule,
     IonicModule,
     PersonsPageRoutingModule,
-    PersonComponentModule
+    PersonComponentModule,
+    
     
     
   ],

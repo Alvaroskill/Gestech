@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { PersonDetailComponent } from '../components/person-detail/person-detail.component';
 import { Person } from '../models/person.module'
 import { PersonsService } from '../services/persons.service';
-import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,11 +14,11 @@ import { ActivatedRoute } from '@angular/router';
 
 
 
-export class PersonsPage {
+export class PersonsPage implements OnInit {
 
   public persons : Person []; // Definir la clase personas en la clase Personpage
 
-  constructor(private datos : PersonsService, private activatedRoute : ActivatedRoute) { 
+  constructor(private datos:PersonsService, private modal:ModalController) { 
 
     
 
@@ -30,5 +31,46 @@ export class PersonsPage {
   getPeople(): Person[] {
     return this.datos.getPeople();
   }
+
+  async presentPersonForm(person:Person){
+    const modal = await this.modal.create({
+      component:PersonDetailComponent,
+      componentProps:{
+        person:person
+      }
+    });
+    modal.present();
+    modal.onDidDismiss().then(result=>{
+      if(result && result.data){
+        switch(result.data.mode){
+          case 'New':
+            this.peopleSvc.addPerson(result.data.person);
+            break;
+          case 'Edit':
+            this.pSvc.updatePerson(result.data.person);
+            break;
+          default:
+        }
+      }
+    });
+  }
+  
+  onNewPerson(){
+    this.presentPersonForm(null);  
+  }
+
+  onEditPerson(person){
+    this.presentPersonForm(person);
+  }
+
+  onDeletePerson(person){
+    this.datos.deletePersonById(person.id);
+  }
+
+
+
+
+
+
 }
 

@@ -1,11 +1,6 @@
-<ion-content>
-  <h1>
-  {{ person.name }}
-  </h1>
-  <h2>
-  {{ person.surname }}
-  </h2>
-  <h3>
-  {{ person.age }}
-  </h3>
-</ion-content>
+<ion-item>
+  <ion-label>{{person.name}} {{person.surname}}</ion-label>
+  <ion-label>{{person.age}}</ion-label>
+  <ion-button icon-only fill="clear" (click)="onEditClick()"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
+  <ion-button icon-only fill="clear" color="danger" (click)="onDeleteClick()"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
+</ion-item>

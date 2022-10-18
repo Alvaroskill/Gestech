@@ -57,5 +57,11 @@ export class PersonsService {
     return this.person[id];
   }
 
+  getPersonById(id:number){
+    return this.person.find(p=>p.id==id);
+  }
 
+  deletePersonById(id:number){
+    this.person = this.person.filter(p=>p.id != id); 
+  }
 }
