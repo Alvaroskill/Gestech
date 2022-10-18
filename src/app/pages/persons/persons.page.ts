@@ -41,17 +41,7 @@ export class PersonsPage implements OnInit {
     });
     modal.present();
     modal.onDidDismiss().then(result=>{
-      if(result && result.data){
-        switch(result.data.mode){
-          case 'New':
-            this.peopleSvc.addPerson(result.data.person);
-            break;
-          case 'Edit':
-            this.pSvc.updatePerson(result.data.person);
-            break;
-          default:
-        }
-      }
+
     });
   }
   
