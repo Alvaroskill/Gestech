@@ -9,7 +9,7 @@ import { Person } from '../models/person.module';
 
 export class PersonsService {
 
-  public person: Person[] = [
+  public _person: Person[] = [
     {
       id: 0,
       name: 'Pepe',
@@ -46,22 +46,33 @@ export class PersonsService {
       image: ''
     }
   ]
-  
+  id:number = this._person.length+1;
   constructor() { }
 
-  public getPeople(): Person[] {
-    return this.person;
-  }
-
-  public getPeopleById(id: number): Person {
-    return this.person[id];
+  getPeople(){
+    return this._person;
   }
 
   getPersonById(id:number){
-    return this.person.find(p=>p.id==id);
+    return this._person.find(p=>p.id==id);
   }
 
   deletePersonById(id:number){
-    this.person = this.person.filter(p=>p.id != id); 
+    this._person = this._person.filter(p=>p.id != id); 
+  }
+  addPerson(person:Person){
+    person.id = this.id++;
+    this._person.push(person);
+  }
+
+  updatePerson(person:Person){
+    var _person = this._person.find(p=>p.id==person.id);
+    if(_person){
+      _person.name = person.name;
+      _person.surname = person.surname;
+      _person.age = person.age;
+      _person.image = person.image;
+    }
+    
   }
 }

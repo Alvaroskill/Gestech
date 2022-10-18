@@ -2,7 +2,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Datos de la persona</ion-title>
-    
   </ion-toolbar>
 </ion-header>
 
@@ -26,9 +25,9 @@
       <ion-label position="floating">
         Edad
       </ion-label>
-      <ion-input type="text" placeholder="Introduce tu edad" formControlName="age"></ion-input>
+      <ion-input type="number" placeholder="Introduce tu edad" formControlName="age"></ion-input>
     </ion-item>
     <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
-    <ion-button type="submit">Cerrar</ion-button>
+    <ion-button (click)="onDismiss(null)">Cerrar</ion-button>
   </form>
 </ion-content>

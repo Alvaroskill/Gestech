@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { PersonDetailComponent } from '../components/person-detail/person-detail.component';
 import { Person } from '../models/person.module'
 import { PersonsService } from '../services/persons.service';
@@ -18,7 +18,7 @@ export class PersonsPage implements OnInit {
 
   public persons : Person []; // Definir la clase personas en la clase Personpage
 
-  constructor(private datos:PersonsService, private modal:ModalController) { 
+  constructor(private datos:PersonsService, private modal:ModalController, private alert:AlertController) { 
 
     
 
@@ -41,7 +41,17 @@ export class PersonsPage implements OnInit {
     });
     modal.present();
     modal.onDidDismiss().then(result=>{
-
+      if(result && result.data){
+        switch(result.data.mode){
+          case 'New':
+            this.datos.addPerson(result.data.person);
+            break;
+          case 'Edit':
+            this.datos.updatePerson(result.data.person);
+            break;
+          default:
+        }
+      }
     });
   }
   
@@ -49,15 +59,14 @@ export class PersonsPage implements OnInit {
     this.presentPersonForm(null);  
   }
 
-  onEditPerson(person){
-    this.presentPersonForm(person);
-  }
 
   onDeletePerson(person){
     this.datos.deletePersonById(person.id);
   }
 
-
+  onEditPerson(person){
+    this.presentPersonForm(person);
+  }
 
 
 
