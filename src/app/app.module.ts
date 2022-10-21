@@ -8,9 +8,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PersonDetailComponent } from './pages/components/person-detail/person-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TaskDetailComponent } from './pages/task-detail/task-detail.component';
+import { ViewtasksPageModule } from './pages/viewtasks/viewtasks.module';
+
+
 
 @NgModule({
-  declarations: [AppComponent, PersonDetailComponent],
+  declarations: [AppComponent, PersonDetailComponent, TaskDetailComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

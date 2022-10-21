@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>viewtasks</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tasks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-button [routerLink]="['../home']" >Return</ion-button>
+  <ion-item>
+    <ion-button (click)="onNewTask()" style="margin:10px;width:50px;height:50px;--border-radius:50%" slot="start"
+      icon-only>
+      <ion-icon style="zoom:2" name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item *ngFor="let task of getTasks()">
+    <app-task [task]="task"></app-task>
+    <ion-button icon-only fill="clear" (click)="onEditTask(task)"><ion-icon style="zoom:1.5" name="create-outline" ></ion-icon></ion-button>
+    <ion-button icon-only fill="clear" color="danger" (click)="onDeleteTask(task)"><ion-icon style="zoom:1.5" name="trash-outline" ></ion-icon></ion-button>
+  </ion-item>
 </ion-content>
