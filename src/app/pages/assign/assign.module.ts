@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { AssignPageRoutingModule } from './assign-routing.module';
 
 import { AssignPage } from './assign.page';
+import { AssignmentComponent } from '../components/assignment/assignment.component';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { AssignPage } from './assign.page';
     IonicModule,
     AssignPageRoutingModule
   ],
-  declarations: [AssignPage]
+  declarations: [AssignPage, AssignmentComponent]
 })
 export class AssignPageModule {}

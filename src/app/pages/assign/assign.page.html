@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>assign</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Assigns</ion-title>
+    <ion-button (click)="onNewAssign()" slot="end" style="margin:10px;width:50px;height:50px;--border-radius:50%;margin-right: 2%;" icon-only><ion-icon style="zoom:2" name="add-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button [routerLink]="['../home']" >Return</ion-button>
+  <ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let a of getAssignments()" size="12" size-lg="4" size-sm="6">
+      <app-assignment [assignment]="a" (onEdit)="onEditAssign($event)" (onDelete)="onDeleteAssign($event)"></app-assignment>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>

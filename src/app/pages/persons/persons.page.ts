@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { PersonDetailComponent } from '../components/person-detail/person-detail.component';
-import { Person } from '../models/person.module'
+import { Person } from '../models/person.model'
 import { PersonsService } from '../services/persons.service';
 
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { Person } from '../../models/person.module';
+import { Person } from '../../models/person.model';
 import { PersonsService } from '../../services/persons.service';
 
 
